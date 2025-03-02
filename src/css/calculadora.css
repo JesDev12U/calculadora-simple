@@ -29,18 +29,42 @@
   padding-bottom: 20px;
 }
 
-.pantalla input {
+.pantalla #input-pantalla {
   font-family: 'Digital 7';
   font-size: 2.5em;
-  width: 85%;
+  width: 230px;
+  height: 45px;
   padding: 5px;
   background-color: #BCD1C0;
   text-align: right;
   display: block;
   border-radius: 5px;
   border: thin solid #9eaea1;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
-.pantalla input:focus {
+.pantalla #input-pantalla:focus {
   outline: none
+}
+
+/* Estilos personalizados para el scrollbar */
+.pantalla #input-pantalla::-webkit-scrollbar {
+  width: 7px; /* Ancho del scrollbar */
+  height: 7px;
+}
+
+.pantalla #input-pantalla::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+  border-radius: 10px;
+}
+
+.pantalla #input-pantalla::-webkit-scrollbar-thumb {
+  background: #888; /* Color del thumb */
+  border-radius: 10px;
+}
+
+.pantalla #input-pantalla::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del thumb al pasar el mouse */
 }

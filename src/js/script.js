@@ -7,43 +7,43 @@ let historialTemp = []; //[[Operación, Resultado]]
 document.querySelectorAll(".print-pantalla").forEach(($el) => {
   $el.addEventListener("click", () => {
     if (
-      $inputPantalla.value === SYNTAXERROR ||
-      $inputPantalla.value === INFINITY
+      $inputPantalla.textContent === SYNTAXERROR ||
+      $inputPantalla.textContent === INFINITY
     )
-      $inputPantalla.value = "";
-    $inputPantalla.value = $inputPantalla.value + $el.dataset.value;
+      $inputPantalla.textContent = "";
+    $inputPantalla.textContent = $inputPantalla.textContent + $el.dataset.value;
   });
 });
 
 // Botón AC para limpiar todo
 document.getElementById("btn-clear-all").addEventListener("click", () => {
-  $inputPantalla.value = "";
+  $inputPantalla.textContent = "";
 });
 
 // Botón para eliminar caracter por caracter
 document
   .getElementById("btn-eliminar-caracter")
   .addEventListener("click", () => {
-    if ($inputPantalla.value.length === 0) return;
-    $inputPantalla.value = $inputPantalla.value.substring(
+    if ($inputPantalla.textContent.length === 0) return;
+    $inputPantalla.textContent = $inputPantalla.textContent.substring(
       0,
-      $inputPantalla.value.length - 1
+      $inputPantalla.textContent.length - 1
     );
   });
 
 // Botón igual
 document.getElementById("btn-igual").addEventListener("click", () => {
-  if ($inputPantalla.value.length === 0) return;
-  let expresion = $inputPantalla.value
+  if ($inputPantalla.textContent.length === 0) return;
+  let expresion = $inputPantalla.textContent
     .replace("×", "*")
     .replace("÷", "/")
     .replace("−", "-");
   try {
-    $inputPantalla.value = math.evaluate(expresion);
+    $inputPantalla.textContent = math.evaluate(expresion);
     expresion = expresion.replace("*", "×").replace("/", "÷").replace("-", "−");
-    historialTemp.push([expresion, $inputPantalla.value]);
+    historialTemp.push([expresion, $inputPantalla.textContent]);
   } catch (e) {
-    $inputPantalla.value = SYNTAXERROR;
+    $inputPantalla.textContent = SYNTAXERROR;
   }
 });
 
@@ -70,7 +70,7 @@ document.getElementById("btn-historial").addEventListener("click", () => {
     $buttonPushable.setAttribute("class", "pushable");
     $buttonPushable.setAttribute("data-operacion", historialTemp[i][0]);
     $buttonPushable.addEventListener("click", function () {
-      $inputPantalla.value = this.dataset.operacion;
+      $inputPantalla.textContent = this.dataset.operacion;
       $historialContainer.classList.toggle("hidden");
     });
     $spanFront.setAttribute("class", "front");
@@ -103,13 +103,13 @@ document
 document
   .getElementById("btn-borrar-ultima-operacion")
   .addEventListener("click", () => {
-    let arrayInputPantalla = $inputPantalla.value.split("");
+    let arrayInputPantalla = $inputPantalla.textContent.split("");
     let lastIndexOperation = 0;
     arrayInputPantalla.find((el, index) => {
       if (el === "×" || el === "÷" || el === "−" || el === "+")
         lastIndexOperation = index;
     });
-    $inputPantalla.value = arrayInputPantalla
+    $inputPantalla.textContent = arrayInputPantalla
       .splice(0, lastIndexOperation)
       .join("");
   });
