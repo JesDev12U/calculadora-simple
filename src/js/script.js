@@ -98,3 +98,18 @@ document
       $item.outerHTML = "";
     });
   });
+
+// Botón para borrar la última operación
+document
+  .getElementById("btn-borrar-ultima-operacion")
+  .addEventListener("click", () => {
+    let arrayInputPantalla = $inputPantalla.value.split("");
+    let lastIndexOperation = 0;
+    arrayInputPantalla.find((el, index) => {
+      if (el === "×" || el === "÷" || el === "−" || el === "+")
+        lastIndexOperation = index;
+    });
+    $inputPantalla.value = arrayInputPantalla
+      .splice(0, lastIndexOperation)
+      .join("");
+  });
