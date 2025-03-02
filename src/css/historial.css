@@ -1,0 +1,62 @@
+.historial-container {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s ease;
+  background-color: #bcd1c0da;
+  width: 300px;
+  height: 400px;
+  z-index: 2;
+  position: fixed;
+  border: thin solid #78b221;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.encabezado-historial {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items-historial {
+  font-family: 'Digital 7';
+  font-size: 1.7em;
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/* Estilos personalizados para el scrollbar */
+.items-historial::-webkit-scrollbar {
+  width: 7px; /* Ancho del scrollbar */
+  height: 7px;
+}
+
+.items-historial::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+  border-radius: 10px;
+}
+
+.items-historial::-webkit-scrollbar-thumb {
+  background: #888; /* Color del thumb */
+  border-radius: 10px;
+}
+
+.items-historial::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del thumb al pasar el mouse */
+}
+
+.item-historial button {
+  margin: 10px 0px 10px 0px;
+  font-family: 'Digital 7';
+  background-color: #5c8664;
+
+}
+
+.item-historial button span {
+  background-color: #8fcf9b;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

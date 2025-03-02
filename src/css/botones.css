@@ -1,0 +1,70 @@
+.pushable {
+  background: #a1a0a0;
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  background: #f4f1f1;
+  color: #000;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+.teclado .filas button {
+  font-size: 2em;
+  font-weight: bold;
+  width: 50px;
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+}
+
+.orange-pushable {
+  background: #a86c31
+}
+
+.orange-front {
+  background-color: #FAA248;
+}
+
+.blue-pushable {
+  background: #1a8ca3;
+}
+
+.blue-front {
+  background-color: #24C4E4;
+}
+
+.red-pushable {
+  background-color: #b03a3a;
+}
+
+.red-front {
+  background-color: #f64c4c;
+}
+
+.green-pushable {
+  background-color: #78b221;
+}
+
+.green-front {
+  background-color: greenyellow;
+}
+
+.yellow-pushable {
+  background-color: #c8980a;
+}
+
+.yellow-front {
+  background-color: #FFC107;
+}

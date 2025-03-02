@@ -1,0 +1,17 @@
+{
+  "name": "calculadora",
+  "version": "1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jesus Antonio Lopez Bandala",
+  "license": "ISC",
+  "description": "Una calculadora simple",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "mathjs": "^14.3.0",
+    "particles.js": "^2.0.0"
+  }
+}
