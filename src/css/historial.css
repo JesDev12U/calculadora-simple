@@ -20,7 +20,7 @@
 .items-historial {
   font-family: 'Digital 7';
   font-size: 1.7em;
-  max-height: 360px;
+  max-height: 300px;
   overflow-y: auto;
   overflow-x: auto;
 }
