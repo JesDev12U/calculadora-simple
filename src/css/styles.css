@@ -10,6 +10,10 @@
   src: url("../../fonts/poppins/Poppins-Bold.ttf");
 }
 
+* {
+  user-select: none;
+}
+
 *,
 *::after,
 *::before {
