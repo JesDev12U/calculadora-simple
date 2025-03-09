@@ -64,26 +64,36 @@ document.getElementById("btn-igual").addEventListener("click", function () {
     .replace("×", "*")
     .replace("÷", "/");
   try {
-    $inputPantalla.textContent = Number(math.evaluate(expresion))
-      .toFixed(2)
-      .toString();
-    if (
-      $inputPantalla.textContent[$inputPantalla.textContent.length - 1] ===
-        "0" &&
-      $inputPantalla.textContent[$inputPantalla.textContent.length - 2] === "0"
-    ) {
-      let tempText = $inputPantalla.textContent.split("");
-      for (let i = 0; i < 3; i++) tempText.pop();
-      $inputPantalla.textContent = tempText.join("");
-    }
+    const resultado = math.evaluate(expresion);
+    if (resultado.toString() !== INFINITY && resultado.toString() !== NAN) {
+      $inputPantalla.textContent = Number(resultado).toFixed(2).toString();
+      if (
+        $inputPantalla.textContent[$inputPantalla.textContent.length - 1] ===
+          "0" &&
+        $inputPantalla.textContent[$inputPantalla.textContent.length - 2] ===
+          "0"
+      ) {
+        let tempText = $inputPantalla.textContent.split("");
+        for (let i = 0; i < 3; i++) tempText.pop();
+        $inputPantalla.textContent = tempText.join("");
+      }
 
-    expresion = expresion.replace("*", "×").replace("/", "÷");
-    historialTemp.push([expresion, $inputPantalla.textContent]);
-  } catch (e) {
-    $inputPantalla.textContent = SYNTAXERROR;
+      expresion = expresion.replace("*", "×").replace("/", "÷");
+      historialTemp.push([expresion, $inputPantalla.textContent]);
+      return;
+    } else if (resultado.toString() === INFINITY)
+      $inputPantalla.textContent = INFINITY;
+    else $inputPantalla.textContent = NAN;
     setTimeout(() => {
       if (isErrorText($inputPantalla.textContent))
         $inputPantalla.textContent = "";
+    }, 1500);
+  } catch (e) {
+    let operacionMala = $inputPantalla.textContent;
+    $inputPantalla.textContent = SYNTAXERROR;
+    setTimeout(() => {
+      if (isErrorText($inputPantalla.textContent))
+        $inputPantalla.textContent = operacionMala;
     }, 1500);
   }
 });

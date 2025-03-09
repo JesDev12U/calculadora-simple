@@ -12,6 +12,17 @@
   border-radius: 10px;
 }
 
+.btn-container-historial {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-historial span {
+  font-size: 1.2em;
+}
+
 .encabezado-historial {
   display: flex;
   justify-content: space-between;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora v1.0</title>
+    <title>Calculadora v2.0</title>
     <!-- Font Awesome CSS -->
     <link
       rel="stylesheet"
@@ -19,6 +19,13 @@
   <body>
     <div id="particles-js"></div>
     <div class="calculadora-container">
+      <div class="btn-container-historial">
+        <button class="pushable green-pushable" id="btn-historial">
+          <span class="front green-front">
+            <i class="fas fa-history"></i>&nbsp;Consultar historial
+          </span>
+        </button>
+      </div>
       <div class="historial-container hidden">
         <div class="encabezado-historial">
           <h2>Historial</h2>
@@ -55,10 +62,11 @@
                 ><i class="fa-solid fa-delete-left"></i
               ></span>
             </button>
-            <button class="pushable green-pushable" id="btn-historial">
-              <span class="front green-front">
-                <i class="fas fa-history"></i>
-              </span>
+            <button
+              class="pushable print-pantalla green-pushable"
+              data-value="%"
+            >
+              <span class="front green-front">%</span>
             </button>
           </div>
           <div class="filas">
@@ -117,7 +125,7 @@
               <span class="front">0</span>
             </button>
             <button class="pushable print-pantalla" data-value=".">
-              <span class="front">⋅</span>
+              <span class="front">.</span>
             </button>
             <button class="pushable orange-pushable" id="btn-igual">
               <span class="front orange-front">=</span>
