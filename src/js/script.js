@@ -32,6 +32,14 @@ document.querySelectorAll(".print-pantalla").forEach(($el) => {
       }
     }
 
+    // Validación para no permitir más de un símbolo de porcentaje
+    if (value === "%" && currentText.includes("%")) {
+      const lastNumber = currentText.split(/[\+\-\×\÷]/).pop();
+      if (lastNumber.includes("%")) {
+        return;
+      }
+    }
+
     $inputPantalla.textContent = currentText + value;
   });
 });
