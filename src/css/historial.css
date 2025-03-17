@@ -19,6 +19,20 @@
   align-items: center;
 }
 
+.btn-container-historial > * {
+  margin: 5px;
+}
+
+.valor-guardado-container {
+  background-color: greenyellow;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.valor-guardado-container p {
+  font-size: 0.7em;
+}
+
 #btn-historial span {
   font-size: 1.2em;
 }

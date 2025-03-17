@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora v2.0</title>
+    <title>Calculadora v3.0</title>
     <!-- Font Awesome CSS -->
     <link
       rel="stylesheet"
@@ -25,6 +25,10 @@
             <i class="fas fa-history"></i>&nbsp;Consultar historial
           </span>
         </button>
+        <div class="valor-guardado-container">
+          <p><i class="fa-solid fa-floppy-disk"></i>&nbsp;Valor guardado</p>
+          <div id="input-valor-guardado"></div>
+        </div>
       </div>
       <div class="historial-container hidden">
         <div class="encabezado-historial">
@@ -47,6 +51,20 @@
           <div id="input-pantalla"></div>
         </div>
         <div class="teclado">
+          <div class="filas">
+            <button class="pushable blue-pushable" id="btn-mc">
+              <span class="front blue-front">MC</span>
+            </button>
+            <button class="pushable blue-pushable" id="btn-mr">
+              <span class="front blue-front">MR</span>
+            </button>
+            <button class="pushable blue-pushable" id="btn-m+">
+              <span class="front blue-front">M+</span>
+            </button>
+            <button class="pushable blue-pushable" id="btn-m-">
+              <span class="front blue-front">M-</span>
+            </button>
+          </div>
           <div class="filas">
             <button class="pushable red-pushable" id="btn-clear-all">
               <span class="front red-front">AC</span>
