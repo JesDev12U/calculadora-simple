@@ -5,6 +5,7 @@ const NAN = "NaN";
 const UNDEFINED = "Undefined";
 let numAlmacenado = null;
 let historialTemp = []; //[[Operación, Resultado]]
+let resultadoMostrado = false;
 
 const isErrorText = (str) =>
   str === SYNTAXERROR || str === INFINITY || str === NAN || str === UNDEFINED;
@@ -34,6 +35,12 @@ document.querySelectorAll(".print-pantalla").forEach(($el) => {
     if (isErrorText($inputPantalla.textContent))
       $inputPantalla.textContent = "";
 
+    // Si el resultado fue mostrado, limpiar pantalla antes de escribir
+    if (resultadoMostrado) {
+      $inputPantalla.textContent = "";
+      resultadoMostrado = false;
+    }
+
     const value = $el.dataset.value;
     const currentText = $inputPantalla.textContent;
 
@@ -54,6 +61,7 @@ document.querySelectorAll(".print-pantalla").forEach(($el) => {
     }
 
     $inputPantalla.textContent = currentText + value;
+    resultadoMostrado = false;
   });
 });
 
@@ -82,8 +90,8 @@ document.getElementById("btn-igual").addEventListener("click", function () {
   insertClickedClass(this);
   if ($inputPantalla.textContent.length === 0) return;
   let expresion = $inputPantalla.textContent
-    .replace("×", "*")
-    .replace("÷", "/");
+    .replace(/×/g, "*")
+    .replace(/÷/g, "/");
   try {
     const resultado = math.evaluate(expresion);
     if (resultado.toString() !== INFINITY && resultado.toString() !== NAN) {
@@ -91,6 +99,7 @@ document.getElementById("btn-igual").addEventListener("click", function () {
       clearDecimales($inputPantalla);
       expresion = expresion.replace("*", "×").replace("/", "÷");
       historialTemp.push([expresion, $inputPantalla.textContent]);
+      resultadoMostrado = true;
       return;
     } else if (resultado.toString() === INFINITY)
       $inputPantalla.textContent = INFINITY;
@@ -107,6 +116,7 @@ document.getElementById("btn-igual").addEventListener("click", function () {
         $inputPantalla.textContent = operacionMala;
     }, 1500);
   }
+  resultadoMostrado = false;
 });
 
 const $historialContainer = document.querySelector(".historial-container");
