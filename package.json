@@ -1,17 +1,20 @@
 {
   "name": "calculadora",
   "version": "3.0",
-  "main": "index.js",
+  "description": "Una calculadora simple",
   "scripts": {
+    "dev": "npx http-server -p 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Jesus Antonio Lopez Bandala",
   "license": "ISC",
-  "description": "Una calculadora simple",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "mathjs": "^14.3.0",
     "particles.js": "^2.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
